@@ -10,14 +10,12 @@
     }
     
     .black {
-        border: 2px solid black;
         background-color: black;
         border-width: 1px;
     
     }
     
     .taro {
-        border: 2px solid #a3a6e8; 
         background-color: #a3a6e8;
         border-width: 1px;
     }
