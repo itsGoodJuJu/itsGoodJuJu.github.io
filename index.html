@@ -1,129 +1,135 @@
-<!-- create a 90s spam bug using event handlers. Create a clone of one of your favorite website pages but plant a bug in the clone. whenever someone clicks on a button or fills out a form, cause a new box to appear that states “Virus! With a picture of a bug in the box. The window that appears should look like a 90s window with a minimize and exit button. When the user tries to minimize or exit out of the window, a new box should be created on the page with the same virus warning and image.
-
-You may work in groups of your choice, with no more than three ppl per group unless there are people remaining unassigned to a group, in which case those individuals may form a group of four
-
-The webpage should be a good enough clone that the average person who does not frequent the site could be fooled. If you have any questions please post them here and I will respond  -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin Adams (@jujulayne) • Instagram photos and videos</title>
-    <link rel="icon" type="image/x-icon" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png">
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://kit.fontawesome.com/40a7b19699.js" crossorigin="anonymous"></script>
+    <title>SuperCaster</title>
+    <link rel="icon" href="superhero (2).png">
+
+    <!-- bootstrap css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- personal css link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JQuery UI link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
 </head>
-<body>
-    <div class="top-nav">
-        <p>
-            <img src="./images/instaLogo.png" width="125" height="48" class="center">
-            <a class = "SignUp" href="https://www.instagram.com/accounts/emailsignup/?next=%2Fjujulayne%2F&hl=en">Sign up</a> 
-            <button class="LoginIn"><a href="https://www.instagram.com/">Log in</a></button>
+<body class="bodycolor" >
+     <!-- This is the navbar for the Super Caster website project -->
+    <nav class="navbar" style="background-color: rgba(255, 217, 0, 0.933)">
+        <div class="container-fluid">
+            <img src="superhero (2).png" alt="superhero" class="icon">
+            <a class="navbar-brand" href="#">SuperCaster</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html" >Home</a>
+                    <a class="nav-link" href="characters.html">Characters</a>
+                    <a class="nav-link" href="actors.html">Actor/Actress</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <h1 class="Title">SuperCaster WebPage</h1>
+    <div id="welcomeContainer">
+        <h2 class="greeting">\_(^__^)_/ Welcome! </h2>
+    </div>
+        <h3 class="Intro">Introduction:</h3>
+        <p class="webinfo">
+                Hello and welcome to SuperCast! Here, you can create your dream cast for your dream movie. By assigning actors/actresses to specific characters, you can build the ideal cast for a movie named by you. build your SuperCast and share with your friends and families. Maybe you can inspire the next great movie!
         </p>
-    </div> 
-    
+    <h2 class="start">Let's Get Started</h2>
+        <h3 class="instructions">Instructions:</h3>
+            <p class="guide">Enter a name for your dream team or original movie into the input box. Then, select a character you wish to star in the movie and the actor or actress you would like to play that character. You can add additional rows to include other characters. Once you have completed your list of characters and actors, click "Submit Cast" </p>
 
-    <!-- Instagram Profile Section W/Image -->
-    <div class="profile-container">
-        <img id="profilePic" src="./images/jujuAndChia.jpg" alt="Justin and Chia" width="150" height="150">
-        <div class="profile-inside-container">
-            <div class= "profile-top">
-                <h1>jujulayne</h1><button id="bugButton" class="profile-button">Follow</button>
+        <!-- functional interaction to create movie cast -->
+            
+            <div id="castContainer">
+                <div class="nameSubmission">
+                    <p class="nameSubmission">
+                        <!-- where you can type in your team or movie name submission -->
+                        <label class="label" for="team">Create a Team/Movie Name:</label>
+                        <input type="text" name="profilebox" placeholder="Enter your team or movie name..." class="form-control" id="teamName">
+                    </p>
+                </div>
+                <!-- dropdown box section -->
+                <div class="dropdowns">
+                    <!-- Add button to create more hero and actor dropdowns -->
+                    <div id="addOne">
+                        <div class="anotherOne">
+                            <!-- will clone the below -->
+                            <div class="heroSelect">
+                                <p>
+                                    Select Character: 
+                                    <select name="hero" id="heroOptions" class="heroOptions"></select>
+                                </p>
+                                <!-- hero dropdown button -->
+                                
+                            </div>
+                            <div class="actorSelect">
+                                <p>
+                                    Select Actor/Actress:
+                                    <select name="actor" id="dropdownMenu" class="dropdownMenu"></select>
+                                </p>
+                                <!-- Actor/Actress dropdown button -->
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rowButton">
+                        <button onclick="addRow()" id="addRowButton">+ Add Row</button>
+                    </div>
+                </div>
+                <div id="centerSubmit">
+                    <!-- submit button to compile cast info and create a popup -->
+                    <button id="submitCast" onclick="getCast()" type="button" class="btn btn-success">Submit Cast</button>
+                </div>
             </div>
-            <div class="profile-middle">
-                <span>18 posts</span>
-                <span>17M followers</span>
-                <span>1 following</span>
-            </div>
-            <div class="profile-end">
-                <p><span class="profile-middle">Justin Adams</span><span class="grey">he/him</span></p>
-            </div>
-            <div class="profile-tag">
-                <button onclick="bugPopper()"><i class="fa-brands fa-threads" style="color: #000000;"></i> jujulayne</button>
-            </div>  
-            <div class="profile-footer">
-                <p>🤟🏻 | 🏐</p>
-                
-            </div>
-        </div>
-    </div>
-    
-  
-
-    <!-- Private Account Box -->
-    <div class="private-container">
-        <div class="private-box">
-            <p class="private-p1">This Account is Private</p>
-            <p>Already follow jujulayne? <a href="https://www.instagram.com/accounts/login/?next=%2Fjujulayne%2F&source=private_profile&hl=en">Log in </a>to <br> see their photos and videos.</p>
-        </div>
-    </div>
-    
-
-    <!-- virus pop-up -->
-    <div id="bugPopup" class="popup">
+            
+            
+    <!-- pop-up -->
+    <div id="finalPopup" class="popup">
         <div class="popup-content">
             <div class="popup-content-button">
-                <button id="minimizePopup">-</button>
-                <button id="closePopup">x</button>
+                <button id="closePopup" onclick="closeOut()">x</button>
             </div>
-            <h1 class="virusText">
-                Go, Virus! <br> <img src="./images/bugPokemon.png" alt="BUG!" width="100" height="100"> <br> ... It was very effective! 
-            </h1>
-            <p>This is a popup box!</p>
+            <div id="popupText">
+                <h2>
+                    Here is your Cast!
+                </h2>
+                <p>
+                    <span class="outputName"></span>
+                </p>
+                <p>
+                    Character: <span class="outputHero"></span>
+                </p>
+                <p>
+                    Actor/Actress: <span class="outputActor"></span>
+                </p>
+                <h3 id="teamOrMovie"></h3>
+                <ul id="castSelections"></ul>
+            </div>
         </div>
     </div>
 
-    <div id="secondPopup" class="popup">
-        <div class="popup-content">
-            <div class="popup-content-button">
-                <button id="minimizePopup">-</button>
-                <button id="closePopup">x</button>
-            </div>
-            <h1 class="virusText">
-                Go, Virus! <br> <img src="./images/bugPokemon.png" alt="BUG!" width="100" height="100"> <br> ... It was very effective! 
-            </h1>
-            <p>This is a popup box!</p>
-        </div>
+            
+    <!-- added a Footer -->
+    <div class="footerDiv">
+        <footer class="foot">COR: Software Development Cohort ©2024</footer>
     </div>
-    <!-- <button id="myButton">
-        Go, Virus! <br> <img src="bugPokemon.png" alt="BUG!" width="100" height="100"> <br> ... It was very effective! 
-    </button> -->
-    
-    <!-- Links on bottom -->
-    <div id="footer">
-        <a class="footer" href="https://about.meta.com/">Meta</a>
-        <a class="footer" href="https://about.instagram.com/">About</a>
-        <a class="footer" href="https://about.instagram.com/blog">Blog</a>
-        <a class="footer" href="https://about.instagram.com/about-us/careers">Jobs</a>
-        <a class="footer" href="https://help.instagram.com/">Help</a>
-        <a class="footer" href="https://developers.facebook.com/docs/instagram/">API</a>
-        <a class="footer" href="https://help.instagram.com/196883487377501">Privacy</a>
-        <a class="footer" href="https://help.instagram.com/581066165581870">Terms</a>
-        <a class="footer" href="https://help.instagram.com/658378635128234">Location</a>
-        <a class="footer" href="https://www.instagram.com/web/lite/">Instagram Lite</a>
-        <a class="footer" href="https://www.threads.net/login">Threads</a>
-        <a class="footer" href="https://help.instagram.com/1128997980474717">Contact Uploading & Non-Users</a>
-        <a class="footer" href="https://about.meta.com/">Meta Verified</a>
-    </div>
-     
-    <div id="dropdown">
-        <label for="Countries"></label>
-        <select name="Countries" id="Countries">
-        <option value="Filipino">Filipino</option>
-        <option value="Swedish">Svenska</option>
-        <option value="Polish">Polski</option>
-        <option value="Spanish">Espanol</option>
-        <option value="English" selected>English</option>
-        <option value="French">Francais</option>
-        <option value="German">Deutsch</option>
-        <option value="Italian">Italiano</option>
-        <option value="Portuguese">Portugues</option>
-        <option value="Danish">Dansk</option>
-        </select>  
-        <p>© 2024 Instagram from Meta</p>
-    </div>
-    
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- personal javascript link -->
+    <script src="script.js"></script>
+
 </body>
-<script src="./spamBug.js"></script>
 </html>
