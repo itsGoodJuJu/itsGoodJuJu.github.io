@@ -1,37 +1,22 @@
-#  SuperCaster
+# projectTwo
 
-## What is our Project About?
-Supercaster is a website where you can create your dream cast for an upcoming movie. Our "Heroes" API gives us information on the heroes available including: name, place of birth, gender, group-affiliation, and images. Our "Actor/Actress" API gives us the name, nationality, birth year, and image. After accessing the information on both hero and actor/actress cards, you can determine if the actor/actress may be suitable to potray the hero in an upcoming movie and cast them. Once you have decided which actor/actress to assign to which character, you can build your cast on the homepage. By creating a team or movie name and selecting your ideal actor and character pairs, you can submit your creation to build your dream cast.
+This website is called Eventacles!
 
-## Technologies
-- Bootstrap -
-  we used this technology to create our navbar.
-- JQuery UI -
-  we used this technology to add animation to our welcome message.
-- Netlify -
-  we used this technology to deploy our webpage.
+When you login to Eventacles, you can access your own personal event planner. Here you can view your calendar and add new events which we call Eventacles. You are able to search for your events by name and delete events by name.
 
-## Our Webpage
-## Home Page
-<img src="homePage.png"></img>
 
-## Character Page
-<img src="characterPage.png"></img>
+<img src="./frontend/images/mainPage.jpeg">
 
-## Actor/Actress Page
-<img src="actorPage.png"></img>
+<img src="./frontend/images/createAccount.jpeg">
 
-## Team Members
-## Justin
-<img height="300px" width="300px" src="justinadams.jpg"></img>
+<img src="./frontend/images/login.jpeg">
 
-## Jordan
-<img height="300px" width="300px" src="image.png"></img>
+<img src="./frontend/images/forgotPW.jpeg">
 
-## Marcus
-<img height="300px" width="300px" src="Marcus.jpg"></img>
 
-## Emmanuel
-<img height="300px" width="300px" src="image-1.png"></img>
+List of team members:
+
+
+<p><img src="./frontend/images/davidPic.png" height="150" width="150">David Le<img src="./frontend/images/justinPic.png" height="150" width="150">Justin Adams<img src="./frontend/images/jordanPic.png" height="150" width="150">Jordan Morgan</p>
 
 
